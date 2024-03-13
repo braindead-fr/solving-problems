@@ -50,19 +50,11 @@ let button = document.getElementById('button')
 
 button.addEventListener(`click`, function(){
     let input = emailsearch.value
-    let emailexists = false
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (emailPattern.test(input)) {
-        for (let i = 0; i < emailing.length; i++) {
-            if (input === emailing[i]) {
-                emailexists = true
-                break;
-            }
-        }
-
-        if (emailexists) {
-            document.getElementById('emails').innerHTML = 'The email exists';
+        if (emailing.includes(input)) {
+            document.getElementById('emails').innerHTML = 'The email exists';  
         }
         else{
             document.getElementById('emails').innerHTML = 'The email does not exists'
@@ -71,6 +63,4 @@ button.addEventListener(`click`, function(){
     else{
         document.getElementById('emails').innerHTML = 'enter a valid email'
     }
-
-    
 })
